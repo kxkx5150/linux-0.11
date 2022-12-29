@@ -8,7 +8,7 @@ Linux-0.11
 <br>
 
 ```bash
-sudo apt install build-essential manpages-dev qemu nasm bin86 libc6-dev-i386
+sudo apt install build-essential manpages-dev qemu nasm bin86 libc6-dev-i386 gcc-multilib g++-multilib
 ```
 
 ```bash
