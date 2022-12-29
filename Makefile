@@ -134,12 +134,15 @@ tags:
 cscope:
 	@cscope -Rbkq
 
-start:
-	@qemu-system-x86_64 -m 16M -boot a -fda Image -hda $(HDA_IMG)
+run:	Image
+	@qemu-system-x86_64 -m 16M -boot a -fda Image -hda $(HDA_IMG) ${QEMU_OPTS}
 
-debug:
+start:	Image
+	@qemu-system-x86_64 -m 16M -boot a -fda Image -hda $(HDA_IMG) ${QEMU_OPTS}
+
+debug:	Image
 	@echo $(OS)
-	@qemu-system-x86_64 -m 16M -boot a -fda Image -hda $(HDA_IMG) -s -S
+	@qemu-system-x86_64 -m 16M -boot a -fda Image -hda $(HDA_IMG) -s -S ${QEMU_OPTS}
 
 bochs-debug:
 	@$(BOCHS) -q -f tools/bochs/bochsrc/bochsrc-hd-dbg.bxrc	
